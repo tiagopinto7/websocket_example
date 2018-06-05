@@ -27,9 +27,9 @@ def on_close(ws):
 def on_open(ws):
     def run(*args):
 
-        advertise_message = {'op': 'advertise', 'topic': subscribing_topic, 'type': 'std_msgs/String'}
+        advertise_message = {'op': 'advertise', 'topic': publishing_topic, 'type': 'std_msgs/String'}
         publish_message = {'op': 'publish', 'topic': publishing_topic, 'msg': {'data': 'testestet'}}
-        subscribe_message = {'op': 'subscribe', 'topic':'/def', 'type': 'std_msgs/String'}
+        subscribe_message = {'op': 'subscribe', 'topic': subscribing_topic, 'type': 'std_msgs/String'}
 
         ws.send(json.dumps(advertise_message))
         ws.send(json.dumps(publish_message))
